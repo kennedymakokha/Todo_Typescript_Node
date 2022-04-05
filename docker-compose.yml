@@ -1,0 +1,19 @@
+version: '3'
+services:
+  front-end: 
+    depends_on:
+      - back-end
+    build: 
+      context: ./todo_frontend
+      dockerfile: Dockerfile 
+    ports:
+      - "4000:3000" 
+    volumes:
+      - /app/node_modules
+      - ./todo_frontend:/app
+       
+  back-end:
+    build: .
+    ports:
+      - "7000:7000" 
+   
