@@ -29,8 +29,6 @@ export function Todo(props) {
   const user = JSON.parse(localStorage.getItem("userInfo"));
   useEffect(() => {
     dispatch(getTodo());
-    
-    
   }, [todos]);
 
   return (
@@ -54,7 +52,7 @@ export function Todo(props) {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  <h2>{user.name}</h2>
+                  <h2>{user ? user.name : "Seed User"}</h2>
                 </div>
               </div>
             </div>
@@ -62,7 +60,7 @@ export function Todo(props) {
               <div className="flex w-full">
                 <div className="w-1/2 md:w-full pb-2 bg-slate-200">
                   <h3 className="text-3xl uppercase text-center pt-5 pb-3">
-                    My Active Tasks 
+                    My Active Tasks
                   </h3>
                   <AddTodoModal
                     showModal={setShowModal}
